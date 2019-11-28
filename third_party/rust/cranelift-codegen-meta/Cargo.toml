@@ -1,0 +1,17 @@
+[package]
+name = "cranelift-codegen-meta"
+authors = ["The Cranelift Project Developers"]
+version = "0.46.1"
+description = "Metaprogram for cranelift-codegen code generator library"
+license = "Apache-2.0 WITH LLVM-exception"
+repository = "https://github.com/CraneStation/cranelift"
+readme = "README.md"
+edition = "2018"
+
+[dependencies]
+cranelift-codegen-shared = { path = "../shared", version = "0.46.1" }
+cranelift-entity = { path = "../../cranelift-entity", version = "0.46.1" }
+
+[badges]
+maintenance = { status = "experimental" }
+travis-ci = { repository = "CraneStation/cranelift" }

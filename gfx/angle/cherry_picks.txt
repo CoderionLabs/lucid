@@ -1,0 +1,74 @@
+commit fe53e2b60af2314d7fe7040915c1499ef3bb7274
+Author: Miko Mynttinen <mikokm@gmail.com>
+Date:   Fri Nov 1 17:23:03 2019 +0100
+
+    Remove static_assert for global mutex
+
+commit 7d5a10ac34cac9f629d0080302f1a754e902c66e
+Author: Miko Mynttinen <mikokm@gmail.com>
+Date:   Thu Sep 5 18:04:32 2019 +0200
+
+    Do not override symbol visibility attribute on non-windows builds
+
+commit 0f5a52939b91442075a787523fcf394bdccd4d54
+Author: Miko Mynttinen <mikokm@gmail.com>
+Date:   Tue Sep 3 18:54:54 2019 +0200
+
+    Disable debug layers
+
+commit fea78b079b9e778e240b06a0b8deadf57fe6d75a
+Author: Miko Mynttinen <mikokm@gmail.com>
+Date:   Tue Sep 3 20:04:28 2019 +0200
+
+    Fix MinGW include
+
+commit 811d7beadb57fdd4c999d0702fb48085b770c078
+Author: Jeff Gilbert <jgilbert@mozilla.com>
+Date:   Wed Mar 27 13:52:04 2019 -0700
+
+    Don't clamp in glBlendColor if context supports renderable [half-]float.
+    
+    Add test for glBlendColor >1.0, skipped on D3D9 since it's unsupportable
+    there.
+    
+    Bug: angleproject:3323
+    Change-Id: I3fcf867dae96bdadf8a0183269d8f27b659d0baf
+
+commit ea4db0f4e0c1b70dbe6e204e6afe77b23b8ea256
+Author: Glenn Watson <39062770+gw3583@users.noreply.github.com>
+Date:   Fri Aug 2 07:11:16 2019 +1000
+
+    Fix occasional corruption of vertex textures in HD4600 GPUs. (#19)
+    
+    This appears to be caused by the UpdateSubResource call,
+    which is worked around by enabling the other image upload
+    path that ANGLE supports.
+    
+    The workaround doesn't include a driver version, since the
+    bug is occurring in the most recent driver that is currently
+    available (15.40.42.5063, released 19th Mar 2019).
+
+Cherries picked
+================================================================================
+Merge base from: origin/chromium/3865
+
+commit 08b97da894b278c10e70b6888ac65e3972a13b31
+Author: Shahbaz Youssefi <syoussefi@chromium.org>
+Date:   Tue Jul 23 12:07:13 2019 -0400
+
+    Vulkan: Fix staging buffer alignment for pixel sizes > 4
+    
+    Previously, all non-compressed formats were satisfied with a 4-byte
+    alignment.  The introduction of float formats changes this.
+    
+    This change calculates the necessary alignment using the same code path
+    as compressed formats.
+    
+    Also fixes RGB9E5's pixelByte being calculated as 3 instead of 4.
+    
+    Bug: angleproject:3731
+    Change-Id: I6abfd1c294e7f863eb99d2468eaac09e5d714039
+    Reviewed-on: https://chromium-review.googlesource.com/c/angle/angle/+/1715205
+    Reviewed-by: Mohan Maiya <m.maiya@samsung.com>
+    Reviewed-by: Jamie Madill <jmadill@chromium.org>
+    Commit-Queue: Shahbaz Youssefi <syoussefi@chromium.org>
